@@ -32,7 +32,7 @@ print("Bob computes the secret ", s_Bob)
 A = 26
 B = 85
 
-def discoverSecret(A, B):
+def brute_force_secret(A, B):
     for i in range(1, p):
         if g^i % p == A:
             print("Alberte secret bruteforced!")
@@ -49,11 +49,11 @@ def discoverSecret(A, B):
 
     print("The adversary computes the secret ", s)
 
-discoverSecret(A,B)
+brute_force_secret(A,B)
 
 # 3)
 
 A = 44
 B = 201
 
-discoverSecret(A,B)
+brute_force_secret(A,B)
