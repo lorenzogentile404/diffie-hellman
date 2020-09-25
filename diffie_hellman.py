@@ -15,13 +15,13 @@ b = 9 # Bob's secret
 
 # 1)
 
-A = g^a % p # Alice sends to Bob A
-B = g^b % p # Bob sends to Alice B
+A = g**a % p # Alice sends to Bob A
+B = g**b % p # Bob sends to Alice B
 print("Alice sends to Bob ", A)
 print("Bob sends to Alice", B)
 
-s_Alice = B^a % p # Alice computes the secret
-s_Bob = A^b % p # Bob computes the secret
+s_Alice = B**a % p # Alice computes the secret
+s_Bob = A**b % p # Bob computes the secret
 assert(s_Alice == s_Bob)
 
 print("Alice computes the secret ", s_Alice)
@@ -34,18 +34,18 @@ B = 85
 
 def brute_force_secret(A, B):
     for i in range(1, p):
-        if g^i % p == A:
+        if g**i % p == A:
             print("Alberte secret bruteforced!")
             a = i
-        if g^i % p == B:
+        if g**i % p == B:
             print("Benjamine secret bruteforced!")
             b = i
 
     print("Alberte secret was ", a)
     print("Benjamine secret was ", b)
 
-    assert(A^b % p == B^a % p)
-    s = A^b % p
+    assert(A**b % p == B**a % p)
+    s = A**b % p
 
     print("The adversary computes the secret ", s)
 
